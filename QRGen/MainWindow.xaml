@@ -8,20 +8,16 @@
         Title="MainWindow" Height="450" Width="800"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Background="#181735">
+        Background="{StaticResource BackgroundColor}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
-        <Grid Background="#0F0F2D"
-            Grid.ColumnSpan="2">
+        <Grid Background="{StaticResource TitleBarColor}"
+            Grid.ColumnSpan="2"
+              MouseDown="Grid_MouseDown">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -40,8 +36,12 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
+            <Image Source="pack://application:,,,/Images/logo.png"
+                   VerticalAlignment="Center"
+                   Margin="3"/>
+
             <TextBlock Text="QRGen"
-                       Foreground="white"
+                       Foreground="{StaticResource PrimaryText}"
                        Grid.Column="1"
                        VerticalAlignment="Center"
                        FontWeight="Medium">
@@ -49,27 +49,56 @@
             </TextBlock>
             
             <TextBlock Text="QR Code"
-                       Foreground="LightGray"
+                       Foreground="{StaticResource SecondaryText}"
                        Grid.Column="2"
                        VerticalAlignment="Center">
 
             </TextBlock>
 
             <TextBlock Text="Bar Code"
-                       Foreground="LightGray"
+                       Foreground="{StaticResource SecondaryText}"
                        Grid.Column="3"
                        VerticalAlignment="Center">
 
             </TextBlock>
 
+            <Button Content="X"
+                    Grid.Column="13"
+                    Background="Transparent"
+                    Foreground="White"
+                    Click="Close_window"/>
+
+            <Button Content="-"
+                    Grid.Column="12"
+                    Background="Transparent"
+                    Foreground="White"
+                    Click="Minimize_window"/>
 
         </Grid>
 
-        <StackPanel Grid.Row="1">
-            <StackPanel Orientation="Horizontal">
-                
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Vertical"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <Image x:Name="QRImage"
+               Width="200"
+               Height="200"
+               Margin="0,0,0,20"/>
+
+                <TextBox x:Name="InputBox"
+                 Width="400"
+                 TextAlignment="Center"
+                 Margin="0,0,0,10"/>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <Button Content="QR Code" 
+                            Margin="10"
+                            Click="CreateQR"/>
+                    <Button Content="Bar Code" Margin="10"/>
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
+        </Grid>
         
         </Grid>
 </Window>

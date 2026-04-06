@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:QRGen"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
-    </Application.Resources>
+        <SolidColorBrush x:Key="BackgroundColor" Color="#181735"/>
+           <SolidColorBrush x:Key="TitleBarColor" Color="#0F0F2D"/>
+           <SolidColorBrush x:Key="PrimaryText" Color="White"/>
+            <SolidColorBrush x:Key="SecondaryText" Color="LightGray"/>
+            <SolidColorBrush x:Key="AccentColor" Color="#0078D7"/>
+        </Application.Resources>
 </Application>
